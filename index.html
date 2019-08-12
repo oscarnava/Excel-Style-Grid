@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Excel style framework demo</title>
+  <link rel="stylesheet" href="css/excel-grid.css">
+<!--  <link rel="stylesheet" href="css/styles.css">-->
+  <style>
+    .cell {
+      font: bold 24px monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 7px;
+      padding: 10px;
+    }
+
+    .size-cell {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav {
+      border: 2px solid #a26900;
+      background-color: orange !important;
+    }
+
+    main {
+      border: 2px solid #112d36;
+      background-color: #1e99c1 !important;
+    }
+
+    aside {
+      border: 2px solid #651a1a;
+      background-color: #dea7a7 !important;
+    }
+
+    aside.second {
+      border: 2px solid #360053;
+      background-color: #c29cd6 !important;
+    }
+
+    footer {
+      border: 2px solid #18500e;
+      background-color: #69a85e !important;
+    }
+
+  </style>
+</head>
+
+<body>
+    <div class="excel-grid">
+      <div class="grid" style="grid-gap: 3px; padding: 3px;">
+        <nav class="cell range-xl-A1A4 range-lg-A2A5 range-md-A1A6 range-sm-A1A6">
+          Header
+        </nav>
+        <aside class="cell range-xl-A6D6 range-lg-A1D1 range-md-B6D6 range-sm-B1C1">
+          Sidebar A
+        </aside>
+        <main class="cell range-xl-B1C4 range-lg-B2C5 range-md-B1C4 range-sm-B2C6">
+          Main
+        </main>
+        <aside class="cell range-xl-A5D5 range-lg-A6D6 range-md-B5C5 range-sm-D1D1 second">
+          Sidebar B
+        </aside>
+        <footer class="cell range-xl-D1D4 range-lg-D2D5 range-md-D1D5 range-sm-D2D6">
+          Footer
+        </footer>
+      </div>
+    </div>
+</body>
+
+</html>

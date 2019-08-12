@@ -1,0 +1,79 @@
+@import "defs";
+
+@include enableDebugging();
+
+.excel-grid {
+
+  @if DEBUG {
+    & > div {
+      min-height: 500px;
+    }
+  }
+
+  min-height: 200px;
+  margin: 2px;
+  @include mark(rgba(129, 129, 129, 0.4));
+
+  .grid {
+//    @include mark(green);
+    display: grid;
+    grid-template-columns: repeat($COLS, 1fr);
+    grid-template-rows: repeat(length($ROWS), auto);
+    grid-gap: 0;
+  }
+
+  [class*="range-"] {
+    grid-column: 1 / span $COLS;
+//    @include mark(rgba(18, 77, 103, 0.5), $gradient: true, $mesh: true);
+  }
+
+  /*******************************************************
+   *   Generate classes for Excel style notation
+   ******************************************************/
+
+  @each $name, $dimension-min, $dimension-max in $MEDIA-BREAKPOINTS {
+
+    // Generate rules for each dimension range
+    @media only screen and (min-width: $dimension-min) {
+
+      @for $top from 1 through length($ROWS) {
+        @for $left from 1 through $COLS {
+          @for $bottom from $top through length($ROWS) {
+            @for $right from $left through $COLS {
+
+              $top-name: nth($ROWS,$top);
+              $bottom-name: nth($ROWS,$bottom);
+
+              .range-#{$name}-#{$top-name}#{$left}#{$bottom-name}#{$right} {
+                grid-column: #{$left}/#{$right + 1};
+                grid-row: #{$top}/#{$bottom + 1};
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+//        // Generate a color specific to each selector and dimension.
+//        $color: rgb($lt * 255 / $MAX-COLS, $rt * 255 / $MAX-COLS, 255 * $dimIndex / 3);
+//
+//        .col-#{$name}-#{$lt}-#{$rt} {
+//          grid-column: #{$lt} / ($rt + 1);
+//          grid-row: 1 / 1;
+//          @include mark($color, $gradient: true, $mesh: true) {
+//            background-color: $color;
+//            color: if(lightness($color) < 50%, white, black);
+//          }
+//
+//          @if $DEBUG {
+//            &:hover {
+//              background-image: none;
+//              background-color: complement($color);
+//              transition-property: background-color;
+//              transition-duration: .5s;
+//            }
+//          }
