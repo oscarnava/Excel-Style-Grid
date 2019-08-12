@@ -27,10 +27,11 @@
 //    @include mark(rgba(18, 77, 103, 0.5), $gradient: true, $mesh: true);
   }
 
-  /*******************************************************
-   *   Generate classes for Excel style notation
-   ******************************************************/
+//*******************************************************
+//*   Generate classes for Excel style notation
+//******************************************************
 
+  $total-count: 0;
   @each $name, $dimension-min, $dimension-max in $MEDIA-BREAKPOINTS {
 
     // Generate rules for each dimension range
@@ -48,6 +49,9 @@
                 grid-column: #{$left}/#{$right + 1};
                 grid-row: #{$top}/#{$bottom + 1};
               }
+
+              $total-count: $total-count + 1;
+
             }
           }
         }
@@ -55,25 +59,6 @@
     }
   }
 
+/* Total classes generated: #{$total-count} */
+
 }
-
-
-//        // Generate a color specific to each selector and dimension.
-//        $color: rgb($lt * 255 / $MAX-COLS, $rt * 255 / $MAX-COLS, 255 * $dimIndex / 3);
-//
-//        .col-#{$name}-#{$lt}-#{$rt} {
-//          grid-column: #{$lt} / ($rt + 1);
-//          grid-row: 1 / 1;
-//          @include mark($color, $gradient: true, $mesh: true) {
-//            background-color: $color;
-//            color: if(lightness($color) < 50%, white, black);
-//          }
-//
-//          @if $DEBUG {
-//            &:hover {
-//              background-image: none;
-//              background-color: complement($color);
-//              transition-property: background-color;
-//              transition-duration: .5s;
-//            }
-//          }

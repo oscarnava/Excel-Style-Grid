@@ -1,6 +1,6 @@
-/**
-* Global definitions
-**/
+//**
+//* Global definitions
+//**
 
 $DEBUG: false;        // Enable or disable debug display.
 $ENABLE-MARK: false;  // Enable or disable the display of a dotted line on the elements which use the 'mark' mixin.
@@ -15,14 +15,13 @@ $MEDIA-BREAKPOINTS: (
   (xl, 1200px, 99999px),
 );
 
-/**
-* Global functions & mixins
-**/
+//*******************************
+//* Global functions & mixins
+//*******************************
 
-/*
-* This mixin will just enable or disable some features when debugging; those
-* features should be disabled by default
-*/
+// This mixin will just enable or disable some features when debugging; those
+// features should be disabled by default
+
 @mixin enableDebugging() {
   $DEBUG: true !global;
   $ENABLE-MARK: true !global;
