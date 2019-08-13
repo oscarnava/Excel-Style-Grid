@@ -45,15 +45,15 @@ $MEDIA-BREAKPOINTS: (
 
 @mixin mark($color: random-color(), $gradient: false, $mesh: true) {
   @if $ENABLE-MARK {
-    border: 2px inset transparentize($color, 0.5) !important;
-    background-color: transparentize($color, 0.85) !important;
+    border: 2px inset transparentize($color, 0.5);
+    background-color: transparentize($color, 0.85);
     background-image: (
       if($mesh, url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAJklEQVQYV2NkYGBogGIGEGAEEf///29gZGQESUAEoACsElkArBIADGgJguyRCM8AAAAASUVORK5CYII="), null),
       if($gradient, linear-gradient($color, scale-color($color, $lightness: 50%), $color), null),
-    ) !important;
-    background-repeat: repeat !important;
-    border-radius: 7px !important;
-    margin: 1px !important;
+    );
+    background-repeat: repeat;
+    border-radius: 7px;
+    margin: 1px;
   }
   @if $DEBUG {
     @content;
