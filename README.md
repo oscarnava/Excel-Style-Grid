@@ -1,4 +1,4 @@
-<img src="docs\head-image.jpeg" align="right" width="38%">
+<img src="docs/head-image.jpeg" align="right" width="38%">
 
 # Creating a Powerful Excel-inspired Grid Framework with SASS
 
@@ -51,11 +51,11 @@ But having reached this point, as many times it happens to me (and I’m sure to
 
 Take this example from [css-tricks.com, «A Complete Guide to Grid»](https://css-tricks.com/snippets/css/complete-guide-grid/):
 
-[![img](docs\grid-01.png)](https://css-tricks.com/snippets/css/complete-guide-grid/)
+[![img](docs/grid-01.png)](https://css-tricks.com/snippets/css/complete-guide-grid/)
 
 The ranges can be expressed as:
 
-![img](docs\grid-02.png)
+![img](docs/grid-02.png)
 
 So the notation could be something like this:
 
@@ -85,13 +85,13 @@ Using this notation you can have a simple yet very powerful grid framework!
 
 Now, before deciding the size of the grid that we will be supporting, let’s analyze the case of one row. If you had one row with 12 columns (like Bootstrap does) you would have:
 
-[![img](docs\sum_num.png)](https://en.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_⋯)
+[![img](docs/sum_num.png)](https://en.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_⋯)
 
 [Sum of numbers from 1 to 12 inclusive](https://en.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_⋯)
 
 That means we need 78 classes to describe a single row with 12 columns in the style **col-{media breakpoint}-{start column number}-{end column number}**. But when we increase the vertical dimension, this calculation turns a little bit more complex since we will omit duplicated references (the range **a1-b2** is the same as **b2-a1**), but a simple table should suffice:
 
-![img](docs\table-01.png)
+![img](docs/table-01.png)
 
 Generated classes depending on Rows and Columns
 
@@ -178,7 +178,7 @@ Although simple and immature, this sketch of a framework already shows its power
 
 And this is the result:
 
-![img](docs\grid-03.png)
+![img](docs/grid-03.png)
 
 Considering most of the code is HTML, and the real essence of the layout is contained in the Excel-style class names, this is a nice approach. Also, after creating the 14 inner div’s, it took me about 5 to 10 minutes to place each panel in its corresponding position in the window (and I’m a slow typist 😄).
 
@@ -190,7 +190,7 @@ Considering most of the code is HTML, and the real essence of the layout is cont
 - ☕ Coffee, and more coffee!
 
 ---
-[<img src="docs\microverse.png" width="38%" align="right">](https://www.microverse.org/)
+[<img src="docs/microverse.png" width="38%" align="right">](https://www.microverse.org/)
 
 ## 👤 Contributors
 
